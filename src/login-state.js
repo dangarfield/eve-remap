@@ -1,14 +1,17 @@
 import { loadData, saveData, clearData } from './utils'
 import { createSSO } from 'eve-sso-pkce'
 
-// const sso = createSSO({
-//   clientId: 'd3639f9146214ab3b97010e558042c76',
-//   redirectUri: 'http://localhost:3000/'
-// })
-const sso = createSSO({
-  clientId: '79dfdc54840a4f4f81402ab26ede38cf',
-  redirectUri: 'https://dangarfield.github.io/eve-remap/'
-})
+const ssoConfig = window.location.href.includes('localhost')
+  ? {
+      clientId: 'd3639f9146214ab3b97010e558042c76',
+      redirectUri: 'http://localhost:3000/'
+    }
+  : {
+      clientId: '79dfdc54840a4f4f81402ab26ede38cf',
+      redirectUri: 'https://dangarfield.github.io/eve-remap/'
+    }
+// console.log('ssoConfig', ssoConfig)
+const sso = createSSO(ssoConfig)
 const scopes = 'esi-skills.read_skills.v1 esi-skills.read_skillqueue.v1 esi-clones.read_implants.v1'.split(' ')
 
 export const initLoginState = async () => {
