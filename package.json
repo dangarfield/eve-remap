@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "rollup -cw",
     "build": "rollup -c",
-    "deploy": "push-dir --dir=frontend/_static --branch=gh-pages"
+    "deploy": "push-dir --dir=_static --branch=gh-pages"
   },
   "author": "",
   "license": "ISC",
