@@ -1,0 +1,116 @@
+<doctype html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Eve Remap</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+
+        <style>
+            body {
+                background-color: rgba(19, 27, 27, 255);
+                color: white;
+            }
+
+            .level-container {
+                gap: 2px;
+            }
+
+            .level-container .level-box {
+                width: 15px;
+                height: 15px;
+            }
+
+            .level-container .level-box.e {
+                width: 5px;
+                height: 5px;
+                margin: 5px;
+                background-color: #434949;
+            }
+
+            .level-container .level-box.q {
+                background-color: #59a7bf;
+            }
+
+            b.highlight,
+            .text-highlight {
+                color: #59a7bf;
+            }
+
+            .heading-small {
+                font-size: 20px;
+            }
+
+            .heading-xs {
+                font-size: 16px;
+            }
+
+            .level-container .level-box.t {
+                background-color: #cccccc;
+            }
+
+            .level-container .level-box.u {
+                opacity: 0;
+            }
+
+            .attributes-table>:not(caption)>*>* {
+                background-color: inherit;
+                color: inherit;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="">
+                    <img src="favicon-32x32.png" width="30" height="30" class="d-inline-block align-text-top">
+                    EVE Remap
+                </a>
+                <a class="login" href="">
+                    <img src="https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-white-small.png"
+                        alt="EVE SSO Login Buttons Small Black">
+                </a>
+            </div>
+        </nav>
+
+        <div class="container-fluid mt-3">
+            <div class="row character-holder">
+                <!-- <div class="col character"></div> -->
+                <div class="col info">
+                    <div class="d-flex flex-nowrap h-100 border">
+                        <div class="flex-shrink-0">
+                            <!-- <img src="logo2.jpg" height="256"> -->
+                            <img src="logo.jpg" style="max-height: 280px;">
+                        </div>
+                        <div class="flex-grow-1 pt-3 px-3">
+                            <p><b class="highlight">Login</b> with your eve online character by clicking the link above
+                            </p>
+                            <p>Your skills and queue are automatically pulled in and optimised in terms of <b>order</b>
+                                and <b class="highlight">remaps</b></p>
+                            <p>More remaps takes longer to load</p>
+                            <p>Change your <b class="highlight">skill queue in game</b> and refresh this page to see
+                                changes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col skills"></div>
+                    <div class="col skills-queue"></div>
+                    <div class="col skills-queue-optimised"></div>
+                </div>
+            </div>
+
+            <script src="client.min.js"></script>
+    </body>
+
+    </html>
