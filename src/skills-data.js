@@ -56,6 +56,20 @@ const skillAttributes = {
   181: 'secondary',
   275: 'multiplier'
 }
+const getExpirationWaitTimeStringFromHeader = (expireText) => {
+  const s = new Date(expireText)
+  const e = new Date()
+  const timeInSeconds = (s - e) / 1000
+  if (timeInSeconds < 60) {
+    // Less than 1 minute, show seconds only
+    return `${Math.floor(timeInSeconds)}s`
+  } else {
+    // More than 1 minute, show minutes and seconds
+    const minutes = Math.floor(timeInSeconds / 60)
+    const seconds = Math.floor(timeInSeconds % 60)
+    return `${minutes}m ${seconds}s`
+  }
+}
 export const getSkillsData = async () => {
   const data = loadData()
   // console.log('data', data)
@@ -69,10 +83,12 @@ export const getSkillsData = async () => {
     const skills = (await esi.characters.getCharactersCharacterIdSkills(characterId, { token: data.token.access_token })).data
     // console.log('skills', skills)
 
+    const skillQueueRes = await esi.characters.getCharactersCharacterIdSkillqueue(characterId, { token: data.token.access_token })
     const skillQueue = {
-      skills: (await esi.characters.getCharactersCharacterIdSkillqueue(characterId, { token: data.token.access_token })).data,
+      skills: skillQueueRes.data,
       total: 0,
-      totalString: 0
+      totalString: 0,
+      refreshTime: getExpirationWaitTimeStringFromHeader(skillQueueRes.headers.get('expires'))
     }
     // console.log('skillQueue', skillQueue)
 

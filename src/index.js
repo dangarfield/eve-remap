@@ -71,7 +71,8 @@ const renderSkills = (datas) => {
 }
 const renderQueue = (datas) => {
   let html = ''
-  html += ` <h3 class="mb-3">Skill Queue <span class="text-secondary heading-small ps-3">${datas.skillQueue.skills.length} skills - ${datas.skillQueue.totalString}</span></h3>`
+  html += `<h3 class="m-0">Skill Queue <span class="text-secondary heading-small ps-3">${datas.skillQueue.skills.length} skills - ${datas.skillQueue.totalString}</span></h3>`
+  html += `<p class="text-secondary mb-3">Can refresh in <span class="text-highlight">${datas.skillQueue.refreshTime}</span></p>`
   for (const skill of datas.skillQueue.skills) {
     html += '<span class="level-container d-flex align-items-center">'
     html += `${renderSkillImage(skill.finished_level, skill.trainedSkillLevel, true)}`
