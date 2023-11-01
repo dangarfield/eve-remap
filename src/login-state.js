@@ -1,5 +1,6 @@
 import { loadData, saveData, clearData } from './utils'
-import { createSSO } from 'eve-sso-pkce'
+// import { createSSO } from 'eve-sso-pkce'
+import { createSSO } from './sso/eve-sso-pkce.es.js'
 
 const ssoConfig = window.location.href.includes('localhost')
   ? {
